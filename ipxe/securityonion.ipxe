@@ -1,0 +1,16 @@
+#!ipxe
+
+set ver 12.04.2
+set release 20130717
+
+#iseq ${arch} x86_64 && set cz_arch amd64 || set cz_arch i686-pae
+
+# boot iso directly from sourceforge
+:direct_boot
+set project security-onion
+set iso ${ver}/securityonion-${ver}-${release}.iso
+set sfboot memdisk
+#imgverify sourceforge.ipxe ${sigs}sourceforge.ipxe.sig
+chain sourceforge.ipxe
+exit
+

@@ -1,0 +1,5 @@
+#!ipxe
+kernel http://ftp.sunet.se/pub/Linux/distributions/ubuntu/ubuntu/dists/raring/main/installer-amd64/current/images/netboot/ubuntu-installer/amd64/linux 
+initrd http://ftp.sunet.se/pub/Linux/distributions/ubuntu/ubuntu/dists/raring/main/installer-amd64/current/images/netboot/ubuntu-installer/amd64/initrd.gz 
+#APPEND archiso_http_srv=http://ftp.ds.hj.se/pub/os/linux/archlinux/iso/2013.08.01/ archisobasedir=arch checksum=y ip=dhcp script=http://goo.gl/FhSmRR
+boot

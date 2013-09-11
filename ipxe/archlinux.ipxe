@@ -1,0 +1,44 @@
+#!ipxe
+
+
+# Figure out some typical client information
+cpuid --ext 29 && set archl x86_64 || set archl i686
+
+set mirror ftp.ds.hj.se
+set ver 2013.09.01
+
+set archiso_http_srv http://${mirror}/pub/os/linux/archlinux/iso/${ver}
+set boot ${archiso_http_srv}/arch/boot/${archl}
+
+:menu-archlinux
+menu Archlinux
+item noks no kicktstart
+item mercury    mercury
+item brian    brian
+item
+item --key 0x08 back Back to top menu...
+choose --timeout ${menu-timeout} --default ${menu-default} selected || goto cancel
+set menu-timeout 0
+goto ${selected}
+
+:noks
+imgfree
+set append archiso_http_srv=${archiso_http_srv}/ archisobasedir=arch checksum=y ip=dhcp
+kernel ${boot}/vmlinuz ${append}
+initrd ${boot}/archiso.img
+boot || goto failed
+goto start
+
+:mercury
+imgfree
+set append archiso_http_srv=${archiso_http_srv}/ archisobasedir=arch checksum=y ip=dhcp script=http://goo.gl/FhSmRR
+kernel ${boot}/vmlinuz ${append}
+initrd ${boot}/archiso.img
+boot
+
+:brian
+imgfree
+set append archiso_http_srv=${archiso_http_srv}/ archisobasedir=arch checksum=y ip=dhcp script=http://is.gd/sEXLLU
+kernel ${boot}/vmlinuz ${append}
+initrd ${boot}/archiso.img
+boot

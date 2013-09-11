@@ -1,0 +1,14 @@
+# Based on details from http://pubs.vmware.com/vsphere-50/index.jsp?topic=%2Fcom.vmware.vsphere.upgrade.doc_50%2FGUID-2F0D4696-3681-4C13-9552-5280C6406376.html
+set base-url http://192.168.2.13:8080/esxi/VMware-VMvisor-Installer-5.1.0.update01-1065491.x86_64/
+kernel ${base-url}tboot.b00
+imgargs tboot.b00 ks=http://192.168.2.13:8080/ks/esxi.ks
+module ${base-url}b.b00
+module ${base-url}useropts.gz
+module ${base-url}k.b00
+module ${base-url}a.b00
+module ${base-url}s.v00
+module ${base-url}weaselin.v00
+module ${base-url}tools.t00
+module ${base-url}imgdb.tgz
+module ${base-url}imgpayld.tgz
+boot
