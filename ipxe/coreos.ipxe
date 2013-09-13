@@ -1,0 +1,25 @@
+#!ipxe
+# http://coreos.com/docs/pxe/
+# http://coreos.com/blog/boot-on-bare-metal-with-pxe/
+
+set ver 72.0.0
+
+:coreos
+menu Coreos
+item noks no kicktstart
+item
+item --key 0x08 back Back to top menu...
+choose --timeout ${menu-timeout} --default ${menu-default} selected || goto canc                                          el
+set menu-timeout 0
+goto ${selected}
+
+:noks
+imgfree
+set boot http://storage.core-os.net/coreos/amd64-generic/${ver}/
+# public key
+set append initrd=coreos_production_pxe_image.cpio.gz root=squashfs: state=tmpfs: sshkey="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDP1CGfq2Cc/E/5QEJB2Yss97nsk/WhqXkxAT6bADnNSDDYKYMVRIPjdJI67VQMLNv5airL4VSmvup/JhPmqmpSCr1xu90VvPgo1r3ES+nRqQYcQ4l/IZ6yJdt5VLpPtdRTBswDYqQBZ9axoCh1UgKA2kSvf/1CZumS3qCv3Eqi0OsjxQ+mYiPLlOQsC7OihTHqI/evE+LR2thyEsR7bso04ODrUtYfj16eAq44ZfuahTPyATlvyJCgHsdvp0s/QmTeFTRmW5ym9PshQ9+oxdvZ5Hb9zcHLavQwhuFre8fr44qPR4iyIpf6pCMCvLEvVFY/ap5261TMTeZUt5om8GRV"
+kernel ${boot}coreos_production_pxe.vmlinuz ${append}
+initrd ${boot}coreos_production_pxe_image.cpio.gz
+boot || goto failed
+goto start
+
