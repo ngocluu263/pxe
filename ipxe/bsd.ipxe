@@ -15,7 +15,7 @@ exit 0
 :boot_bsd
 #echo ${cls}
 imgfree
-imgtrust --allow
+#imgtrust --allow
 initrd ${mirror}${dir}/${iso} || initrd ${mirror}${dir}/${iso2}
 set url http://boot.salstar.sk/
 chain ${url}memdisk iso raw
@@ -105,7 +105,7 @@ echo ${cls}
 echo -n Enter version: ${} && read ver
 :skip_read_ver_pcbsd
 
-set mirror http://ftp.netbsd.se/PC-BSD/
+set mirror ftp://ftp.df.lth.se/pub/PCBSD/
 iseq ${arch} i386 && set xarch x86 || set xarch x64
 set dir ${ver}/${arch_a}
 set iso PCBSD${ver}-${xarch}-bootonly.iso

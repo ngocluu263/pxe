@@ -29,16 +29,17 @@ initrd ${boot}/archiso.img
 boot || goto failed
 goto start
 
-:mercury
-imgfree
-set append archiso_http_srv=${archiso_http_srv}/ archisobasedir=arch checksum=y ip=dhcp script=http://goo.gl/FhSmRR
-kernel ${boot}/vmlinuz ${append}
-initrd ${boot}/archiso.img
-boot
-
 :brian
 imgfree
 set append archiso_http_srv=${archiso_http_srv}/ archisobasedir=arch checksum=y ip=dhcp script=http://is.gd/sEXLLU
 kernel ${boot}/vmlinuz ${append}
 initrd ${boot}/archiso.img
 boot
+
+:mercury
+imgfree
+set append archiso_http_srv=${archiso_http_srv}/ archisobasedir=arch checksum=y ip=dhcp script=http://raw.github.com/pandrew/ks/archlinux/mercury.ks
+kernel ${boot}/vmlinuz ${append}
+initrd ${boot}/archiso.img
+boot
+

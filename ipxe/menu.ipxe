@@ -38,6 +38,7 @@ item --key d menu-diag    Diagnostics tools...
 item --key a archlinux Archlinux
 item menu-openbsd OpenBSD
 item esxi esxi
+item coreos CoreOS
 item securityonion Security-Onion
 item --key k menu-kali            Kali
 item --key b debian Debian ${arch_a} [b]
