@@ -43,7 +43,7 @@ d-i user-setup/encrypt-home boolean false
 d-i user-setup/allow-password-weak boolean true
 
 # Minimum packages (see postinstall.sh)
-d-i pkgsel/include string wget curl openssh-server ntp
+d-i pkgsel/include string wget curl openssh-server ntp xubuntu-desktop
 
 # Upgrade packages after debootstrap? (none, safe-upgrade, full-upgrade)
 # (note: set to none for speed)

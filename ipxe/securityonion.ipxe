@@ -1,16 +1,35 @@
 #!ipxe
 
-set ver 12.04.2
-set release 20130717
+set ver 12.04.3
+set release 20130904
 
 #iseq ${arch} x86_64 && set cz_arch amd64 || set cz_arch i686-pae
 
 # boot iso directly from sourceforge
-:direct_boot
-set project security-onion
-set iso ${ver}/securityonion-${ver}-${release}.iso
-set sfboot memdisk
+#:direct_boot
+#set project security-onion
+#set iso ${ver}/securityonion-${ver}-${release}.iso
+#set sfboot memdisk
 #imgverify sourceforge.ipxe ${sigs}sourceforge.ipxe.sig
-chain sourceforge.ipxe
-exit
+#chain sourceforge.ipxe
+#exit
+
+:alienvault
+menu AlienVault
+item noks no kicktstart
+item
+item --key 0x08 back Back to top menu...
+choose --timeout ${menu-timeout} --default ${menu-default} selected || goto cancel
+set menu-timeout 0
+goto ${selected}
+
+:noks
+imgfree
+set boot http://192.168.2.13:8080/alienvault/
+set append preseed/url=${boot}preseed  debian/priority=low preseed/interactive=true video=vesa:ywrap,mtrr vga=788  initrd=${boot}install.amd/initrd.gz quiet ALLinONEauto -- vga=788
+#set append preseed/url=${boot}simple-cdd/defaultB.preseed  debian/priority=low simple-cdd/profiles=Sensor video=vesa:ywrap,mtrr vga=788 initrd=${boot}install.amd/gtk/initrd.gz quiet -- vga=788
+kernel ${boot}install.amd/gtk/vmlinuz ${append}
+initrd ${boot}install.amd/gtk/initrd.gz
+boot || goto failed
+goto start
 
