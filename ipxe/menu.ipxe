@@ -15,6 +15,9 @@ set default-source http://192.168.2.13:8080
 set boot_local ${default-source}
 set url ${default-source}
 
+# Set to any arbitrary location you want to boot from if menu times out.
+set location_ipxe http://192.168.0.1/boot.php?mac=${net0/mac}&asset=${asset:uristring}
+
 # Set initiator-iqn to either hostname or mac
 isset ${hostname} && set initiator-iqn ${base-iqn}:${hostname} || set initiator-iqn ${base-iqn}:${mac}
 
@@ -346,7 +349,7 @@ goto start
 
 ## CENTOS
 :menu-centos
-set source ftp://ftp.sunet.se/pub/Linux/distributions/centos/6.4/os/x86_64
+set source http://ftp.sunet.se/pub/Linux/distributions/centos/6.4/os/x86_64
 menu Centos
 item centos-noks no kicktstart
 item centos-rdo rdo
@@ -358,7 +361,7 @@ goto ${selected}
 
 :centos-noks
 set hostname centos-noks
-set append ramdisk_size=100000 ksdevice=eth0 ip=dhcp url=${source}
+set append ramdisk_size=100000 ksdevice=eth0 ip=dhcp url --url ${source}
 kernel ${source}/isolinux/vmlinuz ${append}
 initrd ${source}/isolinux/initrd.img
 boot || goto failed

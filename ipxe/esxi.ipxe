@@ -1,6 +1,7 @@
 #!ipxe
-set test http://192.168.2.13:8080/esxi/VMware-VMvisor-Installer-5.1.0.update01-1065491.x86_64/
+#set boot http://192.168.2.13:8080/esxi/VMware-VMvisor-Installer-5.1.0.update01-1065491.x86_64/
+set boot http://192.168.2.13:8080/esxi/VMware-VMvisor-Installer-5.5.0-1331820.x86_64/
 dhcp net0
-kernel -n mboot.c32 ${test}mboot.c32
-imgargs mboot.c32 -c ${test}boot.cfg
+kernel -n mboot.c32 ${boot}mboot.c32
+imgargs mboot.c32 -c ${boot}boot.cfg
 boot mboot.c32

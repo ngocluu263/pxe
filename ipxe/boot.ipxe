@@ -1,0 +1,10 @@
+#!ipxe
+isset ${ip} || dhcp
+
+:boot_menu
+chain http://${next-server}:8080/ipxe/menu.ipxe ||
+goto locate_ipxe
+
+:locate_ipxe
+chain ${location_ipxe} ||
+exit
