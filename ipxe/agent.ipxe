@@ -1,0 +1,12 @@
+#!ipxe
+
+set script 
+set append loglevel=3 user=docker console=ttyS0 console=tty nomodeset norestore base script=${script}
+set kernel http://boot.home.local/agent/vmlinuz64
+set initrd http://boot.home.local/agent/initrd.img
+
+
+imgfree
+kernel ${kernel} ${append}
+initrd ${initrd}
+boot
