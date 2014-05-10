@@ -1,7 +1,7 @@
 #!ipxe
 dhcp
 echo Starting Ubuntu x64 installer for ${hostname}
-set base-url http://archive.ubuntu.com/ubuntu/dists/utopic/main/installer-amd64/current/images/netboot
+set base-url http://archive.ubuntu.com/ubuntu/dists/utopic/main/installer-amd64/current/images/netboot/ubuntu-installer/amd64
 kernel ${base-url}/linux
 initrd ${base-url}/initrd.gz
 imgargs linux auto=true url=http://pi:8080/p/pxe/ks/ubuntu-utopic.ipxe.ks
