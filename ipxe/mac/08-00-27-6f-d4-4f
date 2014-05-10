@@ -1,5 +1,0 @@
-#!ipxe
-imgfree
-kernel http://ftp.ds.hj.se/pub/os/linux/archlinux/iso/2013.08.01/arch/boot/x86_64/vmlinuz  archiso_http_srv=http://ftp.ds.hj.se/pub/os/linux/archlinux/iso/2013.08.01/ archisobasedir=arch checksum=y ip=dhcp script=http://goo.gl/FhSmRR
-initrd http://ftp.ds.hj.se/pub/os/linux/archlinux/iso/2013.08.01/arch/boot/x86_64/archiso.img
-boot
