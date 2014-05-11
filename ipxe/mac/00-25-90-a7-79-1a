@@ -1,6 +1,0 @@
-#!ipxe
-set boot http://pi:8080/boot/ESXI-5.5.0-20140302001-STANDARD/
-dhcp net0
-kernel -n mboot.c32 ${boot}mboot.c32
-imgargs mboot.c32 -c ${boot}boot.cfg
-boot mboot.c32
