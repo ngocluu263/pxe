@@ -1,8 +1,9 @@
 #!ipxe
 dhcp
+set append -B smartos=true
 set kernel http://pi:8080/boot/platform/i86pc/kernel/amd64/unix
 set initrd http://pi:8080/boot/platform/i86pc/amd64/boot_archive
 
-kernel ${kernel}
+kernel ${kernel} ${append}
 initrd ${initrd}
 boot
