@@ -1,7 +1,7 @@
 #!ipxe
 dhcp
-set kernel http://pi:8080/boot/platform-20140418T031241Z/i86pc/kernel/amd64/unix
-set initrd http://pi:8080/boot/platform-20140418T031241Z/i86pc/amd64/boot_archive
+set kernel http://pi:8080/boot/platform/i86pc/kernel/amd64/unix
+set initrd http://pi:8080/boot/platform/i86pc/amd64/boot_archive
 
 kernel ${kernel}
 initrd ${initrd}
