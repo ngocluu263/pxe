@@ -1,9 +1,14 @@
 #!ipxe
-dhcp
-set append -B smartos=true
-set kernel http://pi:8080/boot/platform/i86pc/kernel/amd64/unix
-set initrd http://pi:8080/boot/platform/i86pc/amd64/boot_archive
+#imgfree
 
+set script
+set append loglevel=3 user=docker console=ttyS0 console=tty nomodeset norestore base script=${script}
+set kernel http://pi:8080/boot/boot2docker/vmlinuz64
+set initrd http://pi:8080/boot/boot2docker/initrd.img
+
+
+
+imgfree
 kernel ${kernel} ${append}
 initrd ${initrd}
 boot
