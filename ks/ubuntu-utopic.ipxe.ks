@@ -8,6 +8,7 @@ d-i netcfg/get_hostname string unassigned-hostname
 d-i netcfg/get_domain string unassigned-domain
 
 # set first available network interface
+d-i netcfg/choose_interface select auto
 
 # Continue without a default route
 # Not working , specify a dummy in the DHCP
@@ -47,6 +48,10 @@ d-i partman/confirm boolean true
 #Message: "write the changes to disk and configure lvm preseed"
 #http://serverfault.com/questions/189328/ubuntu-kickstart-installation-using-lvm-waits-for-input
 #preseed partman-lvm/confirm_nooverwrite boolean true
+
+# Install grub on /dev/sdb
+d-i grub-installer/bootdev  string /dev/sdb
+
 
 # Write the changes to disks and configure LVM?
 d-i partman-lvm/confirm boolean true
