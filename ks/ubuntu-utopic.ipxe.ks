@@ -7,6 +7,8 @@ d-i console-setup/layout string USA
 d-i netcfg/get_hostname string unassigned-hostname
 d-i netcfg/get_domain string unassigned-domain
 
+# set first available network interface
+
 # Continue without a default route
 # Not working , specify a dummy in the DHCP
 #d-i netcfg/no_default_route boolean
