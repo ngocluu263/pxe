@@ -3,7 +3,7 @@ imgfree
 
 set url http://boot.salstar.sk/
 set mirror http://ftp.sunet.se/pub/OpenBSD/5.5/amd64/
-set version 5.5
+set version 55
 
 initrd ${mirror}cd${version}.iso
 chain ${url}memdisk iso raw
