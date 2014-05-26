@@ -9,4 +9,4 @@ set version 55
 #initrd ${mirror}cd${version}.iso
 #chain ${url}memdisk iso raw
 
-chain ${url}pxeboot
+chain ${mirror}pxeboot
