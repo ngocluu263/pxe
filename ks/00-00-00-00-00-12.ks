@@ -80,7 +80,7 @@ d-i apt-setup/use_mirror boolean true
 d-i mirror/codename string trusty
 d-i mirror/country string manual
 d-i mirror/http/hostname string ftp.sunet.se
-d-i mirror/http/directory string /ubuntu
+d-i mirror/http/directory string /pub/Linux/distributions/ubuntu/ubuntu
 d-i mirror/http/proxy string
 d-i mirror/protocol select http
 
