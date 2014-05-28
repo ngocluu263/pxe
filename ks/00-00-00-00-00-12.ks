@@ -5,9 +5,13 @@ d-i debian-installer/locale string en_US.utf8
 d-i console-setup/ask_detect boolean false
 d-i console-setup/layout string USA
 
-#d-i netcfg/get_hostname string dummy
-d-i netcfg/get_hostname string unassigned-hostname
-d-i netcfg/get_domain string unassigned-domain
+# Network configuration
+d-i netcfg/choose_interface select auto
+#d-i netcfg/get_hostname string {{.Hostname}}
+d-i netcfg/get_hostname string srv1
+#d-i netcfg/get_domain string {{.Domainname}}
+d-i netcfg/get_domain string home.lan
+d-i netcfg/wireless_wep string
 
 d-i netcfg/choose_interface select auto
 
@@ -18,7 +22,6 @@ d-i clock-setup/utc boolean true
 
 d-i kbd-chooser/method select American English
 
-d-i netcfg/wireless_wep string
 
 # If you want the preconfiguration file to work on systems both with and
 # without a dhcp server, uncomment these lines and the static network
