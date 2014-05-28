@@ -11,7 +11,7 @@
 sleep 30
 
 location="https://raw.githubusercontent.com/pandrew/packer-ubuntu-current/master/scripts/"
-scripts=(base.sh puppet.sh vagrant.sh)
+scripts=(base.sh puppet.sh configure-puppet.sh vagrant.sh)
 for script in ${scripts[@]}; do
   curl -fsL $location$script | bash
 done
