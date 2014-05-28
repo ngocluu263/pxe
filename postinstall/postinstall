@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # grab our firstboot script
-/usr/bin/curl -o /root/firstboot http://my-web-server.mydomain.com/firstboot
+/usr/bin/curl -o /root/firstboot http://boot.home.lan:8080/p/pxe/postinstall/firstboot
 chmod +x /root/firstboot
 
 # create a service that will run our firstboot script
