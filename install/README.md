@@ -1,0 +1,1 @@
+kickstart/preseed and similar
