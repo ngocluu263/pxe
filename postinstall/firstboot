@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 
 # This script will run the first time the system boots. Even
