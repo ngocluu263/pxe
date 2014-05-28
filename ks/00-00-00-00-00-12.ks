@@ -77,10 +77,12 @@ d-i pkgsel/update-policy select none
 # debconf-get-selections --install
 #Use mirror
 #d-i apt-setup/use_mirror boolean true
+d-i mirror/codename string trusty
 d-i mirror/country string manual
 d-i mirror/http/hostname string se.archive.ubuntu.com
 d-i mirror/http/directory string /ubuntu
 d-i mirror/http/proxy string
+d-i mirror/protocol select http
 
 # Once the installation is done we'll set the system up for some firstboot
 # magic.
