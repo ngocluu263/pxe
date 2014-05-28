@@ -88,4 +88,4 @@ d-i mirror/protocol select http
 
 # Once the installation is done we'll set the system up for some firstboot
 # magic.
-d-i preseed/late_command string chroot /target sh -c "/usr/bin/curl -o /tmp/postinstall http://boot.home.lan:8080/p/pxe/ks/postinstall/postinstall && /bin/sh -x /tmp/postinstall"
+d-i preseed/late_command string chroot /target sh -c "/usr/bin/curl -o /tmp/postinstall http://boot.home.lan:8080/p/pxe/postinstall/postinstall && /bin/sh -x /tmp/postinstall"
