@@ -83,8 +83,8 @@ d-i pkgsel/update-policy select none
 #choose-mirror-bin mirror/http/directory string /ubuntu
 #choose-mirror-bin mirror/suite select maverick
 #d-i debian-installer/allow_unauthenticated string true
-
-choose-mirror-bin mirror/http/proxy string
+#choose-mirror-bin mirror/http/proxy string
+d-i mirror/http/mirror select se.archive.ubuntu.com
 
 # Once the installation is done we'll set the system up for some firstboot
 # magic.
