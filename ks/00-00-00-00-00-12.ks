@@ -77,14 +77,10 @@ d-i pkgsel/update-policy select none
 # debconf-get-selections --install
 #Use mirror
 #d-i apt-setup/use_mirror boolean true
-#d-i mirror/country string manual
-#choose-mirror-bin mirror/protocol string http
-#choose-mirror-bin mirror/http/hostname string 192.168.4.150
-#choose-mirror-bin mirror/http/directory string /ubuntu
-#choose-mirror-bin mirror/suite select maverick
-#d-i debian-installer/allow_unauthenticated string true
-#choose-mirror-bin mirror/http/proxy string
-d-i mirror/http/mirror select se.archive.ubuntu.com
+d-i mirror/country string manual
+d-i mirror/http/hostname string se.archive.ubuntu.com
+d-i mirror/http/directory string /ubuntu
+d-i mirror/http/proxy string
 
 # Once the installation is done we'll set the system up for some firstboot
 # magic.
