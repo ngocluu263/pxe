@@ -16,7 +16,7 @@ cat > /etc/init.d/firstboot <<EOF
 # Description: A script that runs once
 ### END INIT INFO
 
-cd /root ; /usr/bin/nohup sh -x /root/firstboot &
+cd /root ; /usr/bin/nohup bash -x /root/firstboot &
 
 
 EOF
