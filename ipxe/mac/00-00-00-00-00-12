@@ -4,7 +4,7 @@ echo Starting Ubuntu x64 installer for ${hostname}
 set base-url http://archive.ubuntu.com/ubuntu/dists/trusty/main/installer-amd64/current/images/netboot/ubuntu-installer/amd64
 kernel ${base-url}/linux
 initrd ${base-url}/initrd.gz
-imgargs linux auto=true url=http://pi:8080/p/pxe/ks/00-00-00-00-00-12.ks
+imgargs linux auto=true url=http://boot.home.lan:8080/p/pxe/ks/00-00-00-00-00-12.ks
 boot || 
 # If everything failed, give the user some options
 echo Boot from ${base-url} failed
