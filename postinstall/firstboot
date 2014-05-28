@@ -28,7 +28,7 @@ EOF
 
 
 # Remove our firstboot service so that it won't run again
-update-rc.d firstboot remove
+update-rc.d -f firstboot remove
 
 # Reboot into the new kernel
 /sbin/reboot
