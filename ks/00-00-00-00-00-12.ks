@@ -1,4 +1,6 @@
 ## Options to set on the command line
+# reference:
+# https://www.debian.org/releases/wheezy/example-preseed.txt
 d-i debian-installer/locale string en_US.utf8
 d-i console-setup/ask_detect boolean false
 d-i console-setup/layout string USA
@@ -7,9 +9,8 @@ d-i console-setup/layout string USA
 d-i netcfg/get_hostname string unassigned-hostname
 d-i netcfg/get_domain string unassigned-domain
 
-# Continue without a default route
-# Not working , specify a dummy in the DHCP
-#d-i netcfg/no_default_route boolean
+d-i netcfg/choose_interface select auto
+
 
 d-i time/zone string UTC
 d-i clock-setup/utc-auto boolean true
@@ -18,6 +19,28 @@ d-i clock-setup/utc boolean true
 d-i kbd-chooser/method select American English
 
 d-i netcfg/wireless_wep string
+
+# If you want the preconfiguration file to work on systems both with and
+# without a dhcp server, uncomment these lines and the static network
+# configuration below.
+#d-i netcfg/dhcp_failed note
+#d-i netcfg/dhcp_options select Configure network manually
+
+# Static network configuration.
+#
+# IPv4 example
+d-i netcfg/get_ipaddress string 192.168.88.42
+d-i netcfg/get_netmask string 255.255.255.0
+d-i netcfg/get_gateway string 192.168.88.1
+d-i netcfg/get_nameservers string 192.168.88.1
+d-i netcfg/confirm_static boolean true
+#
+# IPv6 example
+#d-i netcfg/get_ipaddress string fc00::2
+#d-i netcfg/get_netmask string ffff:ffff:ffff:ffff::
+#d-i netcfg/get_gateway string fc00::1
+#d-i netcfg/get_nameservers string fc00::1
+#d-i netcfg/confirm_static boolean true
 
 d-i base-installer/kernel/override-image string linux-server
 #d-i base-installer/kernel/override-image string linux-image-2.6.32-21-generic
