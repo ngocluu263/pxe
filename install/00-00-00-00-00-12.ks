@@ -99,6 +99,12 @@ d-i pkgsel/include string openssh-server ntp curl
 # Allowed values: none, safe-upgrade, full-upgrade
 d-i pkgsel/upgrade select full-upgrade
 
+#{{if .InstallDisk }}
+#d-i grub-installer/bootdev string {{ .InstallDisk }}
+#{{else}}
+#d-i grub-installer/bootdev string /dev/sda
+#{{end}}
+
 d-i grub-installer/bootdev string /dev/sda
 d-i grub-installer/only_debian boolean true
 d-i grub-installer/with_other_os boolean true
