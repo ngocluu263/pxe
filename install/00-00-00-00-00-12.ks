@@ -99,6 +99,7 @@ d-i pkgsel/include string openssh-server ntp curl
 # Allowed values: none, safe-upgrade, full-upgrade
 d-i pkgsel/upgrade select full-upgrade
 
+d-i grub-installer/bootdev string /dev/sda
 d-i grub-installer/only_debian boolean true
 d-i grub-installer/with_other_os boolean true
 d-i finish-install/reboot_in_progress note
