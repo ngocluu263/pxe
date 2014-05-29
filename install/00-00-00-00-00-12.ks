@@ -53,10 +53,11 @@ d-i debconf debconf/frontend select Noninteractive
 d-i pkgsel/install-language-support boolean false
 tasksel tasksel/first multiselect standard, ubuntu-server
 
-# {{if .InstallDisk }}
+#{{if .InstallDisk }}
 #d-i partman-auto/disk string {{ .InstallDisk }}
-# {{else}}
+#{{else}}
 #d-i partman-auto/disk string /dev/sda
+#{{end}}
 
 d-i partman-auto/disk string /dev/sda
 #d-i partman-auto/method string regular
