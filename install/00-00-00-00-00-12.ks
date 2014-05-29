@@ -46,7 +46,6 @@ d-i netcfg/confirm_static boolean true
 #d-i netcfg/confirm_static boolean true
 
 d-i base-installer/kernel/override-image string linux-server
-#d-i base-installer/kernel/override-image string linux-image-2.6.32-21-generic
 
 # Choices: Dialog, Readline, Gnome, Kde, Editor, Noninteractive
 d-i debconf debconf/frontend select Noninteractive
@@ -54,6 +53,12 @@ d-i debconf debconf/frontend select Noninteractive
 d-i pkgsel/install-language-support boolean false
 tasksel tasksel/first multiselect standard, ubuntu-server
 
+# {{if .InstallDisk }}
+#d-i partman-auto/disk string {{ .InstallDisk }}
+# {{else}}
+#d-i partman-auto/disk string /dev/sda
+
+d-i partman-auto/disk string /dev/sda
 #d-i partman-auto/method string regular
 d-i partman-auto/method string lvm
 #d-i partman-auto/purge_lvm_from_device boolean true
